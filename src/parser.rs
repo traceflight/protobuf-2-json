@@ -200,4 +200,51 @@ mod tests {
         let expected = json!({"1":28,"2":"You","3":"Me","4":43,"5":{"1":"abc123","2":""},"6":3029774971578u64,"7":1});
         assert_eq!(json, expected);
     }
+
+    #[test]
+    fn test_parse_3() {
+        let data = hex!(
+            "0a0a6173636f6e2d66756c6c120a6173636f6e2d66756c6c1a1b323032352d30392d30325430393a33373a32362e3033393032385a2203302e312a0474657374421b323032352d30392d30325430393a33373a32362e3033393032385a480068007205302e312e308a016e46756c6c204173636f6e20696d706c656d656e746174696f6e202868617368e280913235362c2041454144e280913132382077697468206e6f6e6365206d61736b696e67202620746167207472756e636174696f6e2c20584f46e280913132382c2043584f46e28091313238292e92012368747470733a2f2f6769746875622e636f6d2f6a6a6b756d2f6173636f6e2d66756c6c9a011a68747470733a2f2f646f63732e72732f6173636f6e2d66756c6ca2012368747470733a2f2f6769746875622e636f6d2f6a6a6b756d2f6173636f6e2d66756c6caa014612222f6170692f76312f6372617465732f6173636f6e2d66756c6c2f76657273696f6e731a202f6170692f76312f6372617465732f6173636f6e2d66756c6c2f6f776e657273"
+        );
+        let parser = Parser::new();
+        let json = parser.parse(&data).unwrap();
+        let expected = json!({
+          "1": "ascon-full",
+          "13": 0,
+          "14": "0.1.0",
+          "17": "Full Ascon implementation (hash‑256, AEAD‑128 with nonce masking & tag truncation, XOF‑128, CXOF‑128).",
+          "18": "https://github.com/jjkum/ascon-full",
+          "19": "https://docs.rs/ascon-full",
+          "2": "ascon-full",
+          "20": "https://github.com/jjkum/ascon-full",
+          "21": {
+            "2": "/api/v1/crates/ascon-full/versions",
+            "3": "/api/v1/crates/ascon-full/owners"
+          },
+          "3": "2025-09-02T09:37:26.039028Z",
+          "4": "0.1",
+          "5": "test",
+          "8": "2025-09-02T09:37:26.039028Z",
+          "9": 0
+        });
+        assert_eq!(json, expected);
+    }
+
+    #[test]
+    fn test_parse_base64_num_array() {
+        let data = hex!("4a050001020304");
+        let parser = Parser::with_bytes_encoding(BytesEncoding::ByteArray);
+        let json = parser.parse(&data).unwrap();
+        let expected = json!({"9":[0,1,2,3,4]});
+        assert_eq!(json, expected);
+    }
+
+    #[test]
+    fn test_parse_num_array() {
+        let data = hex!("4a050001020304");
+        let parser = Parser::new();
+        let json = parser.parse(&data).unwrap();
+        let expected = json!({"9":"\u{0000}\u{0001}\u{0002}\u{0003}\u{0004}"});
+        assert_eq!(json, expected);
+    }
 }
