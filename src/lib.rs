@@ -14,6 +14,26 @@
 //!
 //! ## Examples
 //!
+//! ``` rust
+//! use protobuf_to_json::Parser;
+//! use hex_literal::hex;
+//! use serde_json::json;
+//!
+//! let data = hex!("0d1c0000001203596f751a024d65202b2a0a0a066162633132331200");
+//! let parser = Parser::new();
+//! let json = parser.parse(&data).unwrap();
+//! let expected = json!({
+//!     "1": 28,
+//!     "2": "You",
+//!     "3": "Me",
+//!     "4": 43,
+//!     "5": {
+//!         "1": "abc123",
+//!         "2": ""
+//!     }
+//! });
+//! assert_eq!(json, expected);
+//! ```
 //!
 
 mod message;
