@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Julian Wang <traceflight@outlook.com>"]
 description = "A converter that parses arbitrary protobuf data to json"
 readme = "README.md"
+repository = "https://github.com/traceflight/protobuf-to-json"
 keywords = ["protobuf", "parser", "converter", "json"]
 categories = ["Network programming", "Parser implementations"]
 license = "MIT OR Apache-2.0"
