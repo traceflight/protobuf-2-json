@@ -2,7 +2,22 @@
 name = "protobuf-to-json"
 version = "0.1.0"
 authors = ["Julian Wang <traceflight@outlook.com>"]
+description = "A converter that parses arbitrary protobuf data to json"
+readme = "README.md"
+keywords = ["protobuf", "parser", "converter", "json"]
+categories = ["Network programming", "Parser implementations"]
 license = "MIT OR Apache-2.0"
 edition = "2024"
 
 [dependencies]
+base64 = "0.22.1"
+serde_json = "1.0.143"
+simdutf8 = "0.1.5"
+stfu8 = { version = "0.2.7", optional = true }
+
+[dev-dependencies]
+hex-literal = "1.0.0"
+
+[features]
+default = ["stfu8"]
+stfu8 = ["dep:stfu8"]
