@@ -1,7 +1,7 @@
 # protobuf-to-json
 
 [![Crates.io](https://img.shields.io/crates/v/protobuf-to-json.svg)](https://crates.io/crates/protobuf-to-json)
-[![rustdoc](https://img.shields.io/badge/Doc-protobuf-to-json-green.svg)](https://docs.rs/protobuf-to-json/)
+[![rustdoc](https://img.shields.io/badge/Doc-protobuf_to_json-green.svg)](https://docs.rs/protobuf-to-json/)
 
 A converter that parses arbitrary protobuf data to json
 
