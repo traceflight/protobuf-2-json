@@ -231,7 +231,7 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_base64_num_array() {
+    fn test_parse_encoding_bytearray() {
         let data = hex!("4a050001020304");
         let parser = Parser::with_bytes_encoding(BytesEncoding::ByteArray);
         let json = parser.parse(&data).unwrap();
