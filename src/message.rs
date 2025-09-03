@@ -1,6 +1,7 @@
 use crate::decode_var;
 
 /// Protocol buffer message.
+#[derive(Debug, Default, Clone, PartialEq, Eq, Hash)]
 pub struct Message<'a> {
     /// Decoded fields.
     pub fields: Vec<Field<'a>>,

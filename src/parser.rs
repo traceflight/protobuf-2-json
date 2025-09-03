@@ -10,7 +10,7 @@ use crate::{Field, FieldValue, Message, message::WireType, varint::decode_var};
 const RESERVED_FIELD_NUMBER: Range<u64> = 19000..20000;
 
 /// A protobuf parser that converts protobuf messages to JSON.
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, PartialEq, Eq, Hash)]
 pub struct Parser {
     /// How to encode bytes fields when converting to JSON.
     pub bytes_encoding: BytesEncoding,
