@@ -3,7 +3,7 @@
 [![Crates.io](https://img.shields.io/crates/v/protobuf-to-json.svg)](https://crates.io/crates/protobuf-to-json)
 [![rustdoc](https://img.shields.io/badge/Doc-protobuf_to_json-green.svg)](https://docs.rs/protobuf-to-json/)
 
-A converter that parses arbitrary protobuf data to json
+A parser that converts arbitrary protobuf data to json
 
 ## Features
 * No schema required
@@ -48,6 +48,18 @@ let expected = json!({
 });
 assert_eq!(json, expected);
 ```
+
+## Performance
+
+When parsing raw protobuf data without a `.proto` file, the performance comparison with [protofish](https://crates.io/crates/protofish) is as follows.
+
+| crate | time | throughput |
+|-----|-----|-----|
+| protofish (parse context) | 3.7243 µs | 101.15 MiB/s |
+| protofish (not parse context) | 317.92 ns | 1.1571 GiB/s |
+| **protobuf-to-json** | **172.50 ns** | **2.1326 GiB/s** |
+
+For detailed performance test info, see [parse_once.rs](./benches/parse_once.rs).
 
 ## License
 

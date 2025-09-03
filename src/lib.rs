@@ -1,6 +1,6 @@
 //! # protobuf-to-json
 //!
-//! A converter that parses arbitrary protobuf data to json
+//! A parser that converts arbitrary protobuf data to json
 //!
 //! ## Features
 //! * No schema required
