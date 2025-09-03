@@ -1,6 +1,6 @@
 [package]
 name = "protobuf-to-json"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Julian Wang <traceflight@outlook.com>"]
 description = "A parser that converts arbitrary protobuf data to json"
 readme = "README.md"
