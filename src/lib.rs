@@ -6,7 +6,7 @@
 //! * No schema required
 //! * Use field number as json key
 //! * Configurable bytes encoding (base64, hex, byte array, etc.)
-//! * Guess length-delimited value types (string, nested message, bytes)
+//! * Automatically guesses length-delimited value types (string, nested message, bytes)
 //!
 //! ## Limitations
 //! * Length-delimited value type is guessed based on content. It may not always be correct.
