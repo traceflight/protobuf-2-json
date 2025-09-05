@@ -52,7 +52,7 @@ assert_eq!(json, expected);
 
 ## Performance
 
-When parsing raw protobuf data without a `.proto` file, the performance comparison with [protofish](https://crates.io/crates/protofish) is as follows.
+When parsing raw protobuf data without known schema, the performance comparison with [protofish](https://crates.io/crates/protofish) is as follows.
 
 | crate | time | throughput |
 |-----|-----|-----|
@@ -60,7 +60,7 @@ When parsing raw protobuf data without a `.proto` file, the performance comparis
 | protofish (not parse context) | 317.92 ns | 1.1571 GiB/s |
 | **protobuf-to-json** | **172.50 ns** | **2.1326 GiB/s** |
 
-*protofish parses `.proto` files using [pest](https://crates.io/crates/pest), whose performance is not particularly good.*
+*protofish parses `.proto` file using [pest](https://crates.io/crates/pest), whose performance is not particularly good.*
 
 For detailed performance test info, see [parse_once.rs](./benches/parse_once.rs).
 
