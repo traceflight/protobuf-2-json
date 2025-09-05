@@ -56,9 +56,11 @@ When parsing raw protobuf data without a `.proto` file, the performance comparis
 
 | crate | time | throughput |
 |-----|-----|-----|
-| protofish (parse context) | 3.7243 µs | 101.15 MiB/s |
+| protofish (parse context*) | 3.7243 µs | 101.15 MiB/s |
 | protofish (not parse context) | 317.92 ns | 1.1571 GiB/s |
 | **protobuf-to-json** | **172.50 ns** | **2.1326 GiB/s** |
+
+*protofish parses `.proto` files using [pest](https://crates.io/crates/pest), whose performance is not particularly good.*
 
 For detailed performance test info, see [parse_once.rs](./benches/parse_once.rs).
 
