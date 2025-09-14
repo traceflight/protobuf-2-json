@@ -4,7 +4,7 @@
 [![rustdoc](https://img.shields.io/badge/Doc-protobuf_to_json-green.svg)](https://docs.rs/protobuf-to-json/)
 ![License](https://img.shields.io/crates/l/protobuf_to_json.svg)
 
-A parser that converts arbitrary protobuf data to json
+Fast arbitrary protobuf data to json conversion
 
 ## Features
 * No schema required
